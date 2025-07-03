@@ -50,7 +50,8 @@ export default defineComponent({
   template: `
     <div>
       <div class="form-group">
-        <input type="search" @input="query = $event.target.value" aria-label="Search for email" />
+        <input type="search" @input="query = $event.target.value" aria-label="Search" />
+        <!-- <input type="search" v-model="query" aria-label="Search for email" />-->
       </div>
       <ul aria-label="Emails">
         <li v-for="email in markedEmails" :class="{ marked: email.marked }">
