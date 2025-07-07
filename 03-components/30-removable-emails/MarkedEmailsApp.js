@@ -54,6 +54,7 @@ export default defineComponent({
     })
 
     function removeEmailByIndex(index) {
+      console.log(index)
       emails.value.splice(index, 1)
     }
 
@@ -69,7 +70,7 @@ export default defineComponent({
       <UiFormGroup>
         <UiInput v-model.trim="query" type="search" placeholder="Поиск" aria-label="Поиск" small />
       </UiFormGroup>
-      <EmailList :emails="markedEmails" />
+      <EmailList :emails="markedEmails" @remove="removeEmailByIndex($event)" />
     </div>
   `,
 })
