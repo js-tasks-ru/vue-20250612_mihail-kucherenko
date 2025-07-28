@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends string">
-const model = defineModel<T>({required: true})
+const model = defineModel<T>()
 
 defineProps<{
   options: {
