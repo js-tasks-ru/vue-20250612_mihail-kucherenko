@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { UiButton, UiFormGroup, UiInput } from '@shgk/vue-course-ui'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import MeetupsAuthForm from '../components/MeetupsAuthForm.vue'
 import LayoutAuth from '../components/LayoutAuth.vue'
 import { login } from '../api.ts'
@@ -8,10 +9,13 @@ import { login } from '../api.ts'
 const email = ref('demo@email')
 const password = ref('password')
 
+const router = useRouter()
+
 async function onSubmit() {
   try {
     await login(email.value, password.value)
     // Авторизация прошла успешно
+    router.push(router.currentRoute.value.query.from as string || '/')
   } catch (error) {
     alert((error as Error).message)
   }
@@ -35,7 +39,7 @@ async function onSubmit() {
 
       <template #append>
         Нет аккаунта?
-        <a href="/register">Зарегистрируйтесь</a>
+        <RouterLink to="/register">Зарегистрируйтесь</RouterLink>
       </template>
     </MeetupsAuthForm>
   </LayoutAuth>
