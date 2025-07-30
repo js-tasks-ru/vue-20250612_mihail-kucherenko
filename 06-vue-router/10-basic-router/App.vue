@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { MeetupsFooter } from '@shgk/vue-course-ui'
 import MeetupsHeader from './components/MeetupsHeader.vue'
-import PageIndex from './views/PageIndex.vue'
 </script>
 
 <template>
